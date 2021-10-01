@@ -3,9 +3,10 @@ package cn.itcast.user.controller;
 import cn.itcast.user.config.PatternProperties;
 import cn.itcast.user.domain.User;
 import cn.itcast.user.service.UserService;
-import cn.itcast.user.service.impl.dto.UserDTO;
+import cn.itcast.user.service.dto.UserDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,6 +35,12 @@ public class UserController {
     @GetMapping("now")
     public String now() {
         return LocalDateTime.now().format(DateTimeFormatter.ofPattern(properties.getDateformat()));
+    }
+
+    @PostMapping("/create")
+    public ResponseEntity<Void> create(@RequestBody User user) {
+        userService.create(user);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     /**

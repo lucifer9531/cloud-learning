@@ -1,4 +1,4 @@
-package cn.itcast.user.service.impl.dto;
+package cn.itcast.user.service.dto;
 
 import lombok.Data;
 

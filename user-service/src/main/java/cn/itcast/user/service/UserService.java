@@ -1,7 +1,10 @@
 package cn.itcast.user.service;
 
-import cn.itcast.user.service.impl.dto.UserDTO;
+import cn.itcast.user.domain.User;
+import cn.itcast.user.service.dto.UserDTO;
 
 public interface UserService {
     UserDTO queryById(Long id);
+
+    void create(User user);
 }

@@ -5,5 +5,5 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @MapperScan("cn.itcast.user.mapper")
-public class MybatisConfig {
+public class MybatisPlusConfig {
 }

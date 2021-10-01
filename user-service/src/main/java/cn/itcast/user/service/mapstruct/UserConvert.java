@@ -1,7 +1,7 @@
-package cn.itcast.user.service.impl.mapstruct;
+package cn.itcast.user.service.mapstruct;
 
 import cn.itcast.user.domain.User;
-import cn.itcast.user.service.impl.dto.UserDTO;
+import cn.itcast.user.service.dto.UserDTO;
 import com.google.base.BaseMapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
