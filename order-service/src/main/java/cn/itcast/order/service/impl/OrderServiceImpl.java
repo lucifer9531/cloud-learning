@@ -11,6 +11,8 @@ import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
@@ -36,6 +38,17 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public void queryGoods () {
         System.err.println("查询商品");
+    }
+
+    @Override
+    public List<OrderDTO> queryAll() {
+        // 构造订单关联用户数据
+        List<OrderDTO> orderDTOList = orderConvert.toDto(orderMapper.queryAll());
+        for (OrderDTO orderDTO : orderDTOList) {
+            User user = userClient.findById(orderDTO.getUserId());
+            orderDTO.setUser(user);
+        }
+        return orderDTOList;
     }
 
     /*@Autowired

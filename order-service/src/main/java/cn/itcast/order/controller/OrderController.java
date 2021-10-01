@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("order")
 @RequiredArgsConstructor
@@ -20,6 +22,12 @@ public class OrderController {
     public ResponseEntity<OrderDTO> queryOrderByUserId(@PathVariable("orderId") Long orderId) {
         // 根据id查询订单并返回
         return ResponseEntity.ok(orderService.queryOrderById(orderId));
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<List<OrderDTO>> queryAll() {
+        // 查询全部订单信息
+        return ResponseEntity.ok(orderService.queryAll());
     }
 
     @GetMapping("query")

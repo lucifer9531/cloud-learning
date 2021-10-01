@@ -43,13 +43,16 @@ public class UserController {
      * @return 用户
      */
     @GetMapping("/{id}")
-    public ResponseEntity<UserDTO> queryById(@PathVariable("id") Long id, @RequestHeader(value = "Truth", required = false) String truth) throws InterruptedException {
-        if (id == 1) {
-            // 休眠 触发熔断
-            Thread.sleep(60);
-        } else if (id == 2) {
-            throw new RuntimeException("故意出错，触发熔断");
-        }
+    public ResponseEntity<UserDTO> queryById(
+            @PathVariable("id") Long id,
+            @RequestHeader(value = "Truth", required = false) String truth
+    ) throws InterruptedException {
+//        if (id == 1) {
+//            // 休眠 触发熔断
+//            Thread.sleep(60);
+//        } else if (id == 2) {
+//            throw new RuntimeException("故意出错，触发熔断");
+//        }
         System.out.println("truth: " + truth);
         return ResponseEntity.ok(userService.queryById(id));
     }
