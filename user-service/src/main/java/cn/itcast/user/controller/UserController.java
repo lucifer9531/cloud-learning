@@ -43,6 +43,12 @@ public class UserController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
+    @PostMapping("/update")
+    public ResponseEntity<Void> update(@RequestBody User user) {
+        userService.update(user);
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+    }
+
     /**
      * 路径： /user/110
      *

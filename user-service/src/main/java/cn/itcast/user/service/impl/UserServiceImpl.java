@@ -26,4 +26,10 @@ public class UserServiceImpl implements UserService {
     public void create(User user) {
         userMapper.insert(user);
     }
+
+    @Override
+    @Transactional
+    public void update(User user) {
+        userMapper.updateById(user);
+    }
 }

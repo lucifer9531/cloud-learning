@@ -7,4 +7,6 @@ public interface UserService {
     UserDTO queryById(Long id);
 
     void create(User user);
+
+    void update(User user);
 }
